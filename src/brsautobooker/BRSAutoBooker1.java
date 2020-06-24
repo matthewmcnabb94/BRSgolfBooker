@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class BRSAutoBooker {
+public class BRSAutoBooker1 {
     
     
     
@@ -39,7 +39,7 @@ public class BRSAutoBooker {
     private static DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private static Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
     
-    public static String timeToBook = "0800";
+    public static String timeToBook = "0810";
     
     
     
@@ -77,8 +77,8 @@ public class BRSAutoBooker {
     public static boolean loginToBRSGolf()
     {
         driver.get("https://members.brsgolf.com/moyola/login");
-        String userName = "10780641";
-        String password = "matthewemma1!";
+        String userName = "10780640";
+        String password = "matthew1962";
         
         WebElement loginName = driver.findElement(By.id("login_form_username"));
         WebElement loginPassword = driver.findElement(By.id("login_form_password"));
@@ -92,7 +92,7 @@ public class BRSAutoBooker {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(BRSAutoBooker.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BRSAutoBooker1.class.getName()).log(Level.SEVERE, null, ex);
         }
         loginButton.click();
         

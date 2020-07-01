@@ -22,6 +22,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import org.openqa.selenium.JavascriptExecutor;  
+
 
 public class BRSAutoBooker {
     
@@ -39,7 +41,7 @@ public class BRSAutoBooker {
     private static DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private static Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
     
-    public static String timeToBook = "0800";
+    public static String timeToBook = "1200";
     
     
     
@@ -58,6 +60,10 @@ public class BRSAutoBooker {
         driver = new ChromeDriver();
         builder = new Actions(driver);
         driverWait  = new WebDriverWait(driver,30);
+        
+        ((JavascriptExecutor)driver).executeScript("document.title = 'Matthew McNabb'");
+        
+       
                
         boolean loginOK = loginToBRSGolf();
         

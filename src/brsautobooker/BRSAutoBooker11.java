@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.awt.datatransfer.*;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,7 +40,7 @@ public class BRSAutoBooker11 {
     private static DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private static Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
     
-    public static String timeToBook = "0830";
+    public static String timeToBook = "1000";
     
     
     
@@ -58,7 +59,20 @@ public class BRSAutoBooker11 {
         driver = new ChromeDriver();
         builder = new Actions(driver);
         driverWait  = new WebDriverWait(driver,30);
+        
+        startTimer();
                
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    public static void book()
+    {
         boolean loginOK = loginToBRSGolf();
         
         if(loginOK)
@@ -70,15 +84,52 @@ public class BRSAutoBooker11 {
         {
             System.out.println("Error logging in");
         }
-        
     }
+    
+    
+    
+    
+    public static void startTimer()
+    {
+        
+        System.out.println("Timer started..... ");
+        Timer timer = new Timer(); 
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        calendar.set(Calendar.MINUTE, 10);
+        calendar.set(Calendar.SECOND, 30);
+        Date time = calendar.getTime();
+        
+         timer.schedule(new TimerTask() {
+            public void run() {
+                System.out.println("Running program..." + new Date());
+                //checkIfFilesExist();
+                book();
+                //runBatchFile();
+                
+            }
+            }, time, TimeUnit.MILLISECONDS.convert(14, TimeUnit.HOURS));
+         
+         
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     public static boolean loginToBRSGolf()
     {
         driver.get("https://members.brsgolf.com/moyola/login");
-        String userName = "10782116";
-        String password = "Bruno123";
+        String userName = "10780641";
+        String password = "matthewemma1!";
         
         WebElement loginName = driver.findElement(By.id("login_form_username"));
         WebElement loginPassword = driver.findElement(By.id("login_form_password"));

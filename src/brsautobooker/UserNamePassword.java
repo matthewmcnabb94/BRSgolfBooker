@@ -12,11 +12,11 @@ package brsautobooker;
 public class UserNamePassword {
     
     public String matthewUsername = "10780641";
-    public String matthewPassword = "matthewemma1!";
+    public String matthewPassword = "";
     public String stephenUsername = "10780537";
-    public String stephenPassword = "smcf#1brs";
+    public String stephenPassword = "";
     public String martinUsername = "10780640";
-    public String martinPassword = "matthew1962";
+    public String martinPassword = "";
     
     
 
